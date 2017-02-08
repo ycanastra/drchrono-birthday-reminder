@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <a href="{% url 'social:begin' 'drchrono' %}?next={{ request.path }}">
+      drchrono OAuth
+    </a>
+    {% if user.is_authenticated %}
+      <p>Hi, {{ user.get_username }}</p>
+    {% endif %}
+  </body>
+</html>

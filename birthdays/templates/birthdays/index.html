@@ -1,0 +1,23 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css">
+    <title>
+      Birthday Reminder
+    </title>
+  </head>
+  <body>
+    <a href="{% url 'social:begin' 'drchrono' %}?next={{ request.path }}">
+      drchrono OAuth
+    </a>
+    {% if user.is_authenticated %}
+      <p>Hi {{ user.get_username }}</p>
+      <div id="app">
+      </div>
+      <script src="{% static 'bundle.js' %}"></script>
+    {% else %}
+    {% endif %}
+  </body>
+</html>
